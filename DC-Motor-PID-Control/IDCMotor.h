@@ -1,4 +1,9 @@
 #pragma once
+typedef enum {
+	left,
+	right,
+}Direction;
 class IDCMotor{
-	virtual void SetSpeed(float voltage) = 0;
+public:
+	virtual void SetSpeed(float voltage, Direction dir) = 0;
 };
