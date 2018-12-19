@@ -19,9 +19,9 @@ public:
 	float Correction(float setpoint, float error);
 	~PID();
 private:
-	float _correction;
+	float _correction = 0;
 	float _integral = 0;
 	float _previousError = 0;
-	PIDVal _val;
+	PIDVal _val = { 0 };
 };
 

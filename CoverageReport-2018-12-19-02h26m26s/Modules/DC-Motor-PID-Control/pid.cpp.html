@@ -1,0 +1,79 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>pid.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+#include "PID.h"
+
+PID::PID()
+<span style = "background-color:#fdd">{
+	PIDVal filler{ 0,0,0,0,0,0 };
+	SetPIDValues(&amp;filler);
+}</span>
+
+PID::PID(PIDVal *val)
+<span style = "background-color:#dfd">{
+	SetPIDValues(val);
+}</span>
+
+void PID::SetPIDValues(PIDVal * val)
+<span style = "background-color:#dfd">{
+	_val.kp = val-&gt;kp &gt;= 0 ? val-&gt;kp : 0;
+	_val.ki = val-&gt;ki &gt;= 0 ? val-&gt;ki : 0;
+	_val.kd = val-&gt;kd &gt;= 0 ? val-&gt;kd : 0;</span>
+
+<span style = "background-color:#dfd">	_val.Max = val-&gt;Max;
+	_val.Min = val-&gt;Min;
+	_val.IntegratorLimit = val-&gt;IntegratorLimit;
+}</span>
+
+<span style = "background-color:#fdd">void PID::GetPIDValues(PIDVal *val) {
+	val-&gt;kp = _val.kp;
+	val-&gt;ki = _val.ki;
+	val-&gt;kd = _val.kd;</span>
+
+<span style = "background-color:#fdd">	val-&gt;Max = _val.Max;
+	val-&gt;Min = _val.Max;
+}</span>
+
+float PID::Correction(float setpoint, float measurement)
+<span style = "background-color:#fdd">{
+	float error = setpoint - measurement;
+	float derivative = error - _previousError;
+	_integral += error;
+	if (_integral &gt; _val.IntegratorLimit) {//Integral windup protection
+		_integral = _val.IntegratorLimit;</span>
+	}
+<span style = "background-color:#fdd">	else if (_integral &lt; -_val.IntegratorLimit) {
+		_integral = -_val.IntegratorLimit;</span>
+	}
+	
+<span style = "background-color:#fdd">	float tmpCorrection = error * _val.kp + _integral*_val.ki + derivative*_val.kd;</span>
+	
+<span style = "background-color:#fdd">	if (tmpCorrection &gt; _val.Max) {
+		tmpCorrection = _val.Max;</span>
+	}
+<span style = "background-color:#fdd">	else if (tmpCorrection &lt; _val.Min) {
+		tmpCorrection = _val.Min;</span>
+	}
+<span style = "background-color:#fdd">	_correction = tmpCorrection;
+	_previousError = error;
+	return _correction;</span>
+
+
+<span style = "background-color:#fdd">}</span>
+
+
+
+
+PID::~PID()
+<span style = "background-color:#dfd">{
+}</span></pre>
+	</body>
+</html>

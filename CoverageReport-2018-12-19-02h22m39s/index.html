@@ -1,0 +1,92 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8"/>
+        <title>DC-Motor-PID-Control.exe</title>
+        <link rel="stylesheet" type="text/css" href="third-party/css/style.css"/>
+        <script src="third-party/RGraph/libraries/RGraph.common.core.js" type="text/javascript"></script>
+        <script src="third-party/RGraph/libraries/RGraph.common.dynamic.js" type="text/javascript"></script>
+        <script src="third-party/RGraph/libraries/RGraph.common.tooltips.js" type="text/javascript"></script>
+        <script src="third-party/RGraph/libraries/RGraph.pie.js" type="text/javascript"></script>
+        <script src="third-party/JQuery/jquery-1.11.1.min.js"></script>
+    </head>
+    <body>
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            
+            new RGraph.Pie('pi_49166d6a-48f5-4403-b934-ffcbd991b79b', [36, 34])
+                .set('labels', ['Cover 51%','Uncover 49%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 36 lines (51%)', 'uncover 34 lines (49%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+            new RGraph.Pie('pi_d60641ce-301f-4e5d-b11e-9bd9dcb304a4', [36, 34])
+                .set('labels', ['Cover 51%','Uncover 49%'])
+                .set('colors', ['rgb(0,255,0)','rgb(255,0,0)'])
+                .set('linewidth', 1)
+                .set('shadow', true)
+                .set('tooltips', ['cover 36 lines (51%)', 'uncover 34 lines (49%)'])
+                .set('tooltips.event', 'onmousemove')
+                .set('labels.sticks', true)
+                .set('labels.sticks.length', 10)
+                .draw();
+            
+
+      })
+    </script>    
+        <h1>
+        DC-Motor-PID-Control.exe
+        </h1>
+        <h4>
+        
+        </h4>
+        <table id="rounded-corner">
+            <thead>
+                <tr>
+                    <th scope="col" class="rounded-left">Coverage</th>
+                    <th scope="col">Total lines</th>
+                    <th scope="col" class="rounded-right">Items</th>
+                </tr>
+            </thead> 
+            <tbody>
+                
+                <tr>
+                    <td>
+            <canvas id="pi_49166d6a-48f5-4403-b934-ffcbd991b79b" width="280" height="100">Cover 51%</canvas>
+                    </td>            
+                    <td>70</td>
+                    <td>            
+                      
+                      DC-Motor-PID-Control.exe
+                      
+                    </td>
+                </tr>        
+                
+                <tr>
+                    <td>
+            <canvas id="pi_d60641ce-301f-4e5d-b11e-9bd9dcb304a4" width="280" height="100">Cover 51%</canvas>
+                    </td>            
+                    <td>70</td>
+                    <td>            
+                       <a href="Modules/DC-Motor-PID-Control.html">C:\Users\EmilR\Desktop\GitHub\DC-Motor-PID-Control\Debug\DC-Motor-PID-Control.exe</a> 
+                      
+                      
+                    </td>
+                </tr>        
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                <td colspan="2" class="rounded-foot-left"></td>
+                <td class="rounded-foot-right"></td>
+                </tr>
+            </tfoot>            
+        </table>
+    </body>
+</html>

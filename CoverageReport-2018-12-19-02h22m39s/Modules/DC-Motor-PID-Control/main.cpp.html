@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta charset="utf-8"/>
+	    <title>main.cpp</title>
+	    <link href="../../third-party/google-code-prettify/prettify-CppCoverage.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="../../third-party/google-code-prettify/prettify.js"></script>
+	</head>
+	<body onload="prettyPrint()">
+        <h4></h4>
+		<pre class="prettyprint lang-cpp linenums">
+// DC-Motor-PID-Control.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include &lt;iostream&gt;
+#include "PID.h"
+
+int main()
+<span style = "background-color:#dfd">{
+    std::cout &lt;&lt; "Hello World!\n"; 
+	PIDVal values{ -3,-5,1,4,4, 100};
+	PID Controller = PID(&amp;values);</span>
+
+<span style = "background-color:#dfd">	PIDVal dummy{ 0,0,0,0,0 };</span>
+
+<span style = "background-color:#dfd">	Controller.GetPIDValues(&amp;dummy);</span>
+
+<span style = "background-color:#dfd">	std::cout &lt;&lt; dummy.kp &lt;&lt; std::endl;
+	std::cout &lt;&lt; dummy.ki &lt;&lt; std::endl;
+	std::cout &lt;&lt; dummy.kd &lt;&lt; std::endl;
+	std::cout &lt;&lt; dummy.Max &lt;&lt; std::endl;
+	std::cout &lt;&lt; dummy.Min &lt;&lt; std::endl;
+	std::cout &lt;&lt; dummy.IntegratorLimit &lt;&lt; std::endl;</span>
+
+<span style = "background-color:#dfd">}</span></pre>
+	</body>
+</html>
