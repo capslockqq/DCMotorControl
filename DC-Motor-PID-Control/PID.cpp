@@ -31,12 +31,17 @@ void PID::GetPIDValues(PIDVal *val) {
 	val->Min = _val.Max;
 }
 
-void PID::Correction(float setpoint, float measurement)
+float PID::Correction(float setpoint, float measurement)
 {
 	float error = setpoint - measurement;
 	float derivative = error - _previousError;
 	_integral += error;
-	_integral = _integral > _val.IntegratorLimit ? _val.IntegratorLimit : _integral;//Integral windup protection
+	if (_integral > _val.IntegratorLimit) {//Integral windup protection
+		_integral = _val.IntegratorLimit;
+	}
+	else if (_integral < -_val.IntegratorLimit) {
+		_integral = -_val.IntegratorLimit;
+	}
 	
 	float tmpCorrection = error * _val.kp + _integral*_val.ki + derivative*_val.kd;
 	
@@ -48,6 +53,7 @@ void PID::Correction(float setpoint, float measurement)
 	}
 	_correction = tmpCorrection;
 	_previousError = error;
+	return _correction;
 
 
 }

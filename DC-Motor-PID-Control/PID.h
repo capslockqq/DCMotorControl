@@ -16,7 +16,7 @@ public:
 	PID(PIDVal *val);
 	void SetPIDValues(PIDVal *val);
 	void GetPIDValues(PIDVal *val);
-	void Correction(float setpoint, float error);
+	float Correction(float setpoint, float error);
 	~PID();
 private:
 	float _correction;
