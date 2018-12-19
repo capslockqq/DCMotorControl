@@ -151,11 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="hfile.cpp" />
+    <ClCompile Include="DCMotor12Volts.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PID.cpp" />
+    <ClCompile Include="QuadratureEncoder.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="hfile.h" />
+    <ClInclude Include="DCMotor12Volts.h" />
+    <ClInclude Include="IDCMotor.h" />
+    <ClInclude Include="IEncoder.h" />
+    <ClInclude Include="PID.h" />
+    <ClInclude Include="QuadratureEncoder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
